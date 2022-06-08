@@ -1,6 +1,6 @@
 data "azurerm_resource_group" "examplerg" {
   name     = "${var.prefix}-rg"
-  location = var.location
+  #location = var.location
 }
 
 
