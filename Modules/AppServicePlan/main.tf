@@ -1,4 +1,4 @@
-resource "azurerm_resource_group" "example" {
+data "azurerm_resource_group" "examplerg" {
   name     = "${var.prefix}-rg"
   location = var.location
 }
@@ -6,8 +6,8 @@ resource "azurerm_resource_group" "example" {
 
 resource "azurerm_app_service_plan" "example" {
   name                = "${var.prefix}-appserviceplan"
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+  location            = data.azurerm_resource_group.examplerg.location
+  resource_group_name = data.azurerm_resource_group.examplerg.name
 
   sku {
     tier = "Standard"
@@ -18,8 +18,8 @@ resource "azurerm_app_service_plan" "example" {
 
 resource "azurerm_app_service" "example" {
   name                = "${var.prefix}-app01"
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+  location            = data.azurerm_resource_group.examplerg.location
+  resource_group_name = data.azurerm_resource_group.examplerg.name
   app_service_plan_id = azurerm_app_service_plan.example.id
 
   site_config {
@@ -40,8 +40,8 @@ resource "azurerm_app_service" "example" {
 
 resource "azurerm_app_service" "example1" {
   name                = "${var.prefix}-app02"
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+  location            = data.azurerm_resource_group.examplerg.location
+  resource_group_name = data.azurerm_resource_group.examplerg.name
   app_service_plan_id = azurerm_app_service_plan.example.id
 
   site_config {
