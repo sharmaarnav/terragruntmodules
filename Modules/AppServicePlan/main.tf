@@ -1,3 +1,8 @@
+resource "azurerm_resource_group" "example" {
+  name     = "${var.prefix}-rg"
+  location = var.location
+}
+
 
 resource "azurerm_app_service_plan" "example" {
   name                = "${var.prefix}-appserviceplan"
