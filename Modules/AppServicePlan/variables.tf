@@ -1,5 +1,5 @@
 variable "prefix" {}
 variable "location" {}
-variable "prefixenv" {
-  
-}
+variable "prefixenv" {}
+variable "rgname" {}
+variable "rglocation" {}
