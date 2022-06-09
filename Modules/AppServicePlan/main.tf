@@ -6,7 +6,7 @@ data "azurerm_resource_group" "examplerg" {
 resource "azurerm_app_service_plan" "example" {
   name                = var.app_service_plan
   location            = var.location
-  resource_group_name = data.azurerm_resource_group.examplerg.name
+  resource_group_name = var.resource_group_name
 
   sku {
     tier = "Standard"
@@ -18,7 +18,7 @@ resource "azurerm_app_service_plan" "example" {
 resource "azurerm_app_service" "example" {
   name                = "${var.app_service_plan}-app01"
   location            = var.location
-  resource_group_name = data.azurerm_resource_group.examplerg.name
+  resource_group_name = var.resource_group_name
   app_service_plan_id = azurerm_app_service_plan.example.id
 
   site_config {
@@ -40,7 +40,7 @@ resource "azurerm_app_service" "example" {
 resource "azurerm_app_service" "example1" {
   name                = "${var.app_service_plan}-app02"
   location            = var.location
-  resource_group_name = data.azurerm_resource_group.examplerg.name
+  resource_group_name = var.resource_group_name
   app_service_plan_id = azurerm_app_service_plan.example.id
 
   site_config {
