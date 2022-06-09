@@ -1,7 +1,8 @@
+/*
 data "azurerm_resource_group" "examplerg" {
   name     = "${var.prefix}-rg"
 }
-
+*/
 resource "azurerm_app_service_plan" "example" {
   name                = var.app_service_plan
   location            = var.location
